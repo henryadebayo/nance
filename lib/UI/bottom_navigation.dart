@@ -18,8 +18,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
    final List<Widget> _pages= [
      const HomeScreen(),
      const OtherScreen(),
-     const WalletScreen(),
      const HistoryScreen(),
+     const WalletScreen(),
   ];
 
   @override
@@ -40,11 +40,11 @@ class _BottomNavigationState extends State<BottomNavigation> {
         selectedItemColor: Colors.amber,
         items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.indeterminate_check_box),
+          icon: Icon(Icons.pages),
           label: "Home",
         ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.indeterminate_check_box),
+            icon: Icon(Icons.format_list_numbered_sharp),
           label: "History",
         ),
           BottomNavigationBarItem(
