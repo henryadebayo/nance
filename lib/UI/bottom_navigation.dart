@@ -16,7 +16,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int _currentIndex = 0;
 
    final List<Widget> _pages= [
-    const HomeScreen(),
+     const HomeScreen(),
      const OtherScreen(),
      const WalletScreen(),
      const HistoryScreen(),
@@ -27,9 +27,16 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return  Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar:
+
       BottomNavigationBar(
+        unselectedIconTheme: const IconThemeData(
+          color: Colors.white
+        ),
+        selectedIconTheme:  const IconThemeData(
+            color: Colors.amber
+        ),
+        type:BottomNavigationBarType.fixed,
         backgroundColor: Colors.black,
-        type: BottomNavigationBarType.shifting,
         selectedItemColor: Colors.amber,
         items: const [
         BottomNavigationBarItem(
