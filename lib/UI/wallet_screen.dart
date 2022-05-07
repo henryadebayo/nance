@@ -68,12 +68,44 @@ class _WalletScreenState extends State<WalletScreen> {
                             ),
                             Center(
                               child:
-                              Text("5122 7568 2354 1247",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                  letterSpacing: 0.5,
-                                  fontSize: 20.0.sp,
+                              Padding(
+                                padding:  EdgeInsets.symmetric(horizontal: 15.0.w),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Text("5122",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 2.0,
+                                        fontSize: 20.0.sp,
+                                      ),
+                                    ),
+                                    Text("7568",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 2.0,
+                                        fontSize: 20.0.sp,
+                                      ),
+                                    ),
+                                    Text("2354",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 2.0,
+                                        fontSize: 20.0.sp,
+                                      ),
+                                    ),
+                                    Text("1247",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 2.0,
+                                        fontSize: 20.0.sp,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -185,6 +217,49 @@ class _WalletScreenState extends State<WalletScreen> {
                           ),
                         ),
                       ),
+                    ),
+                    Padding(
+                      padding:  EdgeInsets.only(top:25.0.h,left: 20.0.w, right: 20.0.w),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment:MainAxisAlignment.spaceBetween
+                            ,children: const [
+                            Text("Today", style: TextStyle(color: Colors.grey,
+                            fontWeight: FontWeight.w500,
+                              letterSpacing: 1.0
+                            ),),
+                            Text("-\$ 1,200.30", style: TextStyle(color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                              letterSpacing: 1.0
+                            ),),
+
+                          ],),
+                          Divider(color: Colors.grey, thickness: 0.5.h,),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(itemBuilder: (BuildContext ctx, int index){
+                        return ListTile(
+                          leading: const Icon(Icons.person_pin, color: Colors.black,),
+                          title: Text("Enike", style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0.sp
+                          ),),
+                          trailing: Text("\$ 200.05", style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0.sp
+                          ),),
+                          subtitle: const Text("Escrow Service",
+                             style: TextStyle(
+                               color: Colors.grey
+                             ),
+                          ),
+                        );
+                      }),
                     )
                   ],
                 ),
