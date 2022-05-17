@@ -179,7 +179,82 @@ class _WalletScreenState extends State<WalletScreen> {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  IconButton(icon: const Icon(Icons.call_made_sharp, color: Colors.black,), onPressed: () {},),
+                                  IconButton(icon: const Icon(Icons.call_made_sharp, color: Colors.black,), onPressed: () {
+                                    showModalBottomSheet<void>(
+                                      backgroundColor: Colors.transparent,
+                                      context: context,
+                                        builder: (BuildContext context){
+                                      return Container(
+                                        height: 500.0.h,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.only(topRight: Radius.circular(20.0.r), topLeft: Radius.circular(20.0.r), )
+                                        ),
+                                        child: Column(
+                                         crossAxisAlignment:CrossAxisAlignment.center,
+                                          children:  [
+                                            SizedBox(height: 20.0.h,),
+                                            Text("RECEIVERS ACCOUNT NUMBER", style: TextStyle(
+                                              color: Colors.black,
+                                              letterSpacing: 0.1.w
+                                            ),),
+                                             Padding(
+                                               padding:  EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 10.0.h),
+                                               child: TextFormField(
+                                                 keyboardType: TextInputType.number,
+                                                 decoration: InputDecoration(
+                                                   hintText: "Input Receivers account number",
+                                                   focusColor: Colors.white,
+                                                   //add prefix icon
+                                                   // prefixIcon: Icon(
+                                                   //   Icons.person_outline_rounded,
+                                                   //   color: Colors.grey,
+                                                   // ),
+                                                   //errorText: "Error",
+                                                   border: OutlineInputBorder(
+                                                     borderRadius: BorderRadius.circular(10.0),
+                                                   ),
+                                                   focusedBorder: OutlineInputBorder(
+                                                     borderSide:
+                                                     const BorderSide(color: Colors.amber, width: 1.0),
+                                                     borderRadius: BorderRadius.circular(10.0),
+                                                   ),
+                                                 ),
+                                               ),
+                                             ),
+                                            SizedBox(height: 20.0.h,),
+                                            const Text("AMOUNT TO TRANSFER", style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 0.01
+                                            ),),
+                                            SizedBox(
+                                              height: 10.0.h,
+                                            ),
+                                            Text("\$ 500", style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                                letterSpacing: 0.01,
+                                              fontSize: 50.0.sp,
+                                            ),),
+                                            SizedBox(
+                                              height: 20.0.h,
+                                            ),
+                                            Slider(
+                                                value: 0.0, onChanged: (value){
+                                                  setState(() {
+                                                    var _value = value;
+                                                  });
+                                            },
+                                              activeColor: Colors.amberAccent,
+                                              inactiveColor: Colors.grey[200],
+                                              thumbColor: Colors.amber,
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    });
+                                  },),
                                   Text("Transfer",
                                     style: TextStyle(
                                       color: Colors.black,

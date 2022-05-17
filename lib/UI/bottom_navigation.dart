@@ -27,7 +27,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return  Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar:
-
       BottomNavigationBar(
         unselectedIconTheme: const IconThemeData(
           color: Colors.white
