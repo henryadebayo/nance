@@ -19,7 +19,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
      const HomeScreen(),
      const OtherScreen(),
      const HistoryScreen(),
-     const WalletScreen(),
+      WalletScreen(),
   ];
 
   @override
