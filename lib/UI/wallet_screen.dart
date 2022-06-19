@@ -1,3 +1,5 @@
+import 'package:awesome_card/credit_card.dart';
+import 'package:awesome_card/style/card_background.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -8,8 +10,9 @@ import '../PROVIDERS/wallet_providers.dart';
 import 'bottomSheet.dart';
 
 class WalletScreen extends StatefulWidget {
+  bool showBack = false;
 
-   const WalletScreen({Key? key,}) : super(key: key);
+    WalletScreen({Key? key,}) : super(key: key);
 
   @override
   State<WalletScreen> createState() => _WalletScreenState();
@@ -42,117 +45,162 @@ class _WalletScreenState extends State<WalletScreen> {
                     padding: EdgeInsets.symmetric(horizontal: 20.0.h, vertical: 20.0.w),
                     child:  Text(context.watch<WalletProvider>().userBalance, style: TextStyle(
                       color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                        letterSpacing: 0.5,
+                      // fontWeight: FontWeight.w500,
+                      //   letterSpacing: 0.5,
                       fontSize: 30.0.sp,
                     ),),
                   ),
                   // CARD WIDGET
                   Center(
-                    child: Container(
-                      height: 198.0.h,
-                      width: 350.0.w,
-                      decoration: BoxDecoration(
-                        color: Colors.amberAccent,
-                        borderRadius: BorderRadius.circular(15.0.r)
-                      ),
-                      child: Padding(
-                        padding:  EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 8.0.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding:  EdgeInsets.symmetric(vertical: 10.0.h, horizontal: 13.0.w),
-                              child: Text("BOA.",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 0.5,
-                                  fontSize: 20.0.sp,
-                                ),
-                              ),
-                            ),
-                            Center(
-                              child:
-                              Padding(
-                                padding:  EdgeInsets.symmetric(horizontal: 15.0.w),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Text("5122",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                        letterSpacing: 2.0,
-                                        fontSize: 20.0.sp,
-                                      ),
-                                    ),
-                                    Text("7568",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                        letterSpacing: 2.0,
-                                        fontSize: 20.0.sp,
-                                      ),
-                                    ),
-                                    Text("2354",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                        letterSpacing: 2.0,
-                                        fontSize: 20.0.sp,
-                                      ),
-                                    ),
-                                    Text("1247",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                        letterSpacing: 2.0,
-                                        fontSize: 20.0.sp,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:  EdgeInsets.only(bottom: 20.0.h, left: 5.0.w),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text("05/24",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      // fontWeight: FontWeight.w500,
-                                      letterSpacing: 0.5,
-                                      fontSize: 15.0.sp,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding:  EdgeInsets.only(right: 30.0.w),
-                                    child: Stack(
-                                      clipBehavior: Clip.none,
-                                        children:const [
-
-                                      CircleAvatar(backgroundColor: Colors.black,
-                                        radius: 17.0,
-                                      ),
-                                      Positioned(
-                                        left: 23.0,
-                                          child: CircleAvatar(backgroundColor: Colors.white,
-                                            radius: 17.0,
-                                          ),
-                                      )
-                                    ]),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
+                    child:
+                    GestureDetector(
+                      onTap: (){
+                        setState(() {
+                          if(widget.showBack == false){
+                            widget.showBack = true;
+                          }else{
+                            widget.showBack = false;
+                          }
+                        });
+                      },
+                      child: CreditCard(
+                        cardNumber: "5122 7568 2354 1247",
+                        cardExpiry: "5/24",
+                        cardHolderName: "Marvel Adebayo",
+                        cvv: "157",
+                        bankName: 'Axis Bank',
+                        showBackSide: widget.showBack,
+                        frontBackground: Container(
+                          width: double.maxFinite,
+                          height: double.maxFinite,
+                          color: Colors.amber,
                         ),
+                        backBackground: Container(
+                          width: double.maxFinite,
+                          height: double.maxFinite,
+                          color: Colors.amber,
+                        ),
+                        showShadow: true,
+                        // mask: getCardTypeMask(cardType: CardType.americanExpress),
                       ),
                     ),
+                    // SizedBox(
+                    //   height: 198.0.h,
+                    //   child:
+                    //   Card(
+                    //     color: Colors.amber,
+                    //    shadowColor: Colors.amberAccent,
+                    //     elevation: 8.0,
+                    //     margin: const EdgeInsets.all(10.0),
+                    //     shape:  OutlineInputBorder(
+                    //         borderRadius: BorderRadius.circular(10),
+                    //         borderSide: const BorderSide(color: Colors.amberAccent, width: 1)
+                    //     ),
+                    //     // height: 198.0.h,
+                    //     // width: 350.0.w,
+                    //     // decoration: BoxDecoration(
+                    //     //   color: Colors.amberAccent,
+                    //     //   borderRadius: BorderRadius.circular(15.0.r)
+                    //     // ),
+                    //
+                    //     child: Padding(
+                    //       padding:  EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 8.0.h),
+                    //       child: Column(
+                    //         crossAxisAlignment: CrossAxisAlignment.start,
+                    //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //         children: [
+                    //           Padding(
+                    //             padding:  EdgeInsets.symmetric(vertical: 10.0.h, horizontal: 13.0.w),
+                    //             child: Text("BOA.",
+                    //               style: TextStyle(
+                    //                 color: Colors.black,
+                    //                 fontWeight: FontWeight.bold,
+                    //                 letterSpacing: 0.5,
+                    //                 fontSize: 20.0.sp,
+                    //               ),
+                    //             ),
+                    //           ),
+                    //           Center(
+                    //             child:
+                    //             Padding(
+                    //               padding:  EdgeInsets.symmetric(horizontal: 15.0.w),
+                    //               child: Row(
+                    //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    //                 children: [
+                    //                   Text("5122",
+                    //                     style: TextStyle(
+                    //                       color: Colors.black,
+                    //                       fontWeight: FontWeight.w500,
+                    //                       letterSpacing: 2.0,
+                    //                       fontSize: 20.0.sp,
+                    //                     ),
+                    //                   ),
+                    //                   Text("7568",
+                    //                     style: TextStyle(
+                    //                       color: Colors.black,
+                    //                       fontWeight: FontWeight.w500,
+                    //                       letterSpacing: 2.0,
+                    //                       fontSize: 20.0.sp,
+                    //                     ),
+                    //                   ),
+                    //                   Text("2354",
+                    //                     style: TextStyle(
+                    //                       color: Colors.black,
+                    //                       fontWeight: FontWeight.w500,
+                    //                       letterSpacing: 2.0,
+                    //                       fontSize: 20.0.sp,
+                    //                     ),
+                    //                   ),
+                    //                   Text("1247",
+                    //                     style: TextStyle(
+                    //                       color: Colors.black,
+                    //                       fontWeight: FontWeight.w500,
+                    //                       letterSpacing: 2.0,
+                    //                       fontSize: 20.0.sp,
+                    //                     ),
+                    //                   ),
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //           ),
+                    //           Padding(
+                    //             padding:  EdgeInsets.only(bottom: 20.0.h, left: 5.0.w),
+                    //             child: Row(
+                    //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //               children: [
+                    //                 Text("05/24",
+                    //                   style: TextStyle(
+                    //                     color: Colors.black,
+                    //                     // fontWeight: FontWeight.w500,
+                    //                     letterSpacing: 0.5,
+                    //                     fontSize: 15.0.sp,
+                    //                   ),
+                    //                 ),
+                    //                 Padding(
+                    //                   padding:  EdgeInsets.only(right: 30.0.w),
+                    //                   child: Stack(
+                    //                     clipBehavior: Clip.none,
+                    //                       children:const [
+                    //
+                    //                     CircleAvatar(backgroundColor: Colors.black,
+                    //                       radius: 17.0,
+                    //                     ),
+                    //                     Positioned(
+                    //                       left: 23.0,
+                    //                         child: CircleAvatar(backgroundColor: Colors.white,
+                    //                           radius: 17.0,
+                    //                         ),
+                    //                     )
+                    //                   ]),
+                    //                 ),
+                    //               ],
+                    //             ),
+                    //           )
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ),
                 ],
               ),
@@ -207,7 +255,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                       context: context,
                                         builder: (context){
                                       return
-                                        TransferBottomSheeet();
+                                        const TransferBottomSheeet();
                                     });
                                   },),
                                   Text("Transfer",

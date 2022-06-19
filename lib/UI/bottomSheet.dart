@@ -38,6 +38,15 @@ class _TransferBottomSheeetState extends State<TransferBottomSheeet> {
                   .center,
               children: [
                 SizedBox(height: 20.0.h,),
+                Container(
+                  height: 5.0.h,
+                  width: 60.0.w,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                ),
+                SizedBox(height: 25.0.h,),
                 Text("RECEIVERS ACCOUNT NUMBER",
                   style: TextStyle(
                       color: Colors.black,
@@ -88,7 +97,6 @@ class _TransferBottomSheeetState extends State<TransferBottomSheeet> {
                 Text( context.watch<WalletProvider>().userBalance,
                   style: TextStyle(
                     color: Colors.black,
-                    letterSpacing: 0.01,
                     fontSize: 50.0.sp,
                   ),),
                 SizedBox(
@@ -119,12 +127,11 @@ class _TransferBottomSheeetState extends State<TransferBottomSheeet> {
                     height: 50.0,
                     child: TextButton(onPressed: (){}, child: Center(
                         child:
-                        Text("TRANSFER ${currentValue.toInt()}",
+                        Text("TRANSFER \$${currentValue.toInt()}",
                           style:  TextStyle(
                             color: Colors.black,
-                            fontWeight: FontWeight.bold,
                             letterSpacing: 0.01,
-                            fontSize: 20.0.sp,
+                            fontSize: 18.0.sp,
                           ),)
                     ),
                       style: ButtonStyle(
