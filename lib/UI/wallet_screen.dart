@@ -1,4 +1,6 @@
 import 'package:awesome_card/credit_card.dart';
+import 'package:awesome_card/extra/card_type.dart';
+import 'package:awesome_card/extra/helper.dart';
 import 'package:awesome_card/style/card_background.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -81,7 +83,7 @@ class _WalletScreenState extends State<WalletScreen> {
                           color: Colors.amber,
                         ),
                         showShadow: true,
-                        // mask: getCardTypeMask(cardType: CardType.americanExpress),
+                        mask: getCardTypeMask(cardType: CardType.americanExpress),
                       ),
                     ),
                     // SizedBox(

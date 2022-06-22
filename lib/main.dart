@@ -5,6 +5,9 @@ import 'package:nance/PROVIDERS/wallet_providers.dart';
 import 'package:nance/UI/bottom_navigation.dart';
 import 'package:provider/provider.dart';
 
+import 'UI/auth_screens/getStartedScreen.dart';
+import 'UI/auth_screens/splashScreen.dart';
+
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_)=> WalletProvider()
@@ -30,7 +33,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: BottomNavigation(),
+        //home: BottomNavigation(),
+        home: SplashScreen(),
+       // home: GetStartedScreen(),
       ),
       designSize: const Size(360, 690),
     );
